@@ -1,0 +1,6 @@
+Title : 
+
+**** Navigation Bar ****
+
+add the elements wanted in Navigation within these curly brackets strictly in form of array. "Home" is given as default(donot remove it).
+{"Home", }
