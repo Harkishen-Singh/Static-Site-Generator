@@ -1,5 +1,5 @@
-Title(ID:#title#) : 
-Logo Text (ID:#logotext#): 
+Title( ID:#title# ) : 
+Logo Text ( ID:#logotext# ): 
 
 **** Navigation Bar ****
 
@@ -10,8 +10,8 @@ add the elements wanted in Navigation within these curly brackets strictly in fo
 
 *** Banner ***
 
-content (h2) (ID:#h2text#) : 
-content (h3) (ID:#h3text#):
+content (h2) ( ID:#h2text# ) : 
+content (h3) ( ID:#h3text# ):
 
 *** Banner End ***
 

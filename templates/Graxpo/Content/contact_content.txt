@@ -1,0 +1,11 @@
+ 
+contact text (ID:#contacttext#) :
+
+
+(ID:#contactaddress1#) :
+ 
+(ID:#contactaddress2#) :
+
+(ID:#contactmail#) :
+
+(ID:#contactphone#) :

@@ -1,0 +1,28 @@
+ 
+
+( ID:#team1name# ) :
+ 
+( ID:#team1post# ) :
+
+( ID:#team1content# ) :
+
+
+( ID:#team2name# ) :
+
+( ID:#team2post# ) :
+
+( ID:#team2content# ) :
+
+
+( ID:#team3name# ) :
+
+( ID:#team3post# ) :
+
+( ID:#team3content# ) :
+
+
+( ID:#team4name# ) :
+
+( ID:#team4post# ) :
+
+( ID:#team4content# ) :

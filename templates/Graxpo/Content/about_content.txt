@@ -1,2 +1,2 @@
  
-about content (ID:#abouttext#) : 
+about content ( ID:#abouttext# ) : 
