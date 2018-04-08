@@ -1,10 +1,16 @@
 import subprocess, sys
 
-a = 'THis is a good man'
-a = a.replace('is','harkishen ingh si s ',2)
-print(a)
+import sqlite3
 
+conn = sqlite3.connect('database/test.db')
+print("Opened database successfully")
 
-str = "this is string example....wow!!! this is really string"
-print (str.replace("is", "was"))
-print (str.replace("is", "was", 3))
+conn.execute('''CREATE TABLE COMPANY
+         (ID INT PRIMARY KEY     NOT NULL,
+         NAME           TEXT    NOT NULL,
+         AGE            INT     NOT NULL,
+         ADDRESS        CHAR(50),
+         SALARY         REAL);''')
+print ("Table created successfully")
+
+conn.close()

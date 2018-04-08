@@ -1,43 +1,14 @@
 from flask import Flask, render_template, redirect, url_for
 import sys, subprocess
-import codecs
-
-'''
-## console works below
-fromConsole = sys.argv
-toConsole = ''
-
-themeAddress = ''
-def consoleOperations():
-    newthemeName = ''
-    if fromConsole[1] == 'new':
-        sys.stdout.write('\n\nPlease save the downloaded theme from the Git repository in the themes folder created by the\
-     software\n\n')
-        newthemeName = input('Name of the theme : ')
-    
-    elif fromConsole[1] == 'help':
-        toConsole = 'This is the documentation portal\n\n'
-        sys.stdout.write(toConsole)
-    
-        helpDoc = 'keyword and their following functions below:\n\n' \
-                  '------------------------------------------------------------------------------\n\n' \
-                  '' \
-                  'new \t choosing new theme\n' \
-                  'help \t details for the keywords and their meanings'
-        sys.stdout.write(helpDoc)
-    
-    elif fromConsole[1] == 'run':
-        sys.stdout.write('We have a default theme "Graxpo" to initiate you website building process.')
-        if fromConsole[2] == newthemeName:
-            themeAddress = 'templates/'+ newthemeName +'/'
-            convert(themeAddress)
-'''
+import codecs, sqlite3
+themeName = 'graxpo'
+connection = sqlite3.connect('../database/Record_'+themeName+'.db')
 
 class Replace():
 
     def themeDetails(self):
         self.themeName = input('Enter theme name : ')
-        self.themeAddress = 'templates/'+self.themeName+'/'
+        self.themeAddress = '../templates/'+self.themeName+'/'
         self.contentAddress = self.themeAddress+'Content/'
         self.about_file =  open(self.contentAddress+'about_content.txt', 'r')
         self.about_file_reader = self.about_file.read()
@@ -102,28 +73,3 @@ class Replace():
 if __name__ == '__main__' :
     obj = Replace()
     obj.themeDetails()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app = Flask(__name__)
-
-
-@app.route('/')
-def homePage():
-    return render_template()
