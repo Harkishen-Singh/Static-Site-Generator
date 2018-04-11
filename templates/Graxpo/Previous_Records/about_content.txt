@@ -1,2 +1,4 @@
  
-about content ( ID:#abouttext# ) :: This is the about area 
+about content ( This is the latest two..!
+  ) :: This is the latest two..!
+ 

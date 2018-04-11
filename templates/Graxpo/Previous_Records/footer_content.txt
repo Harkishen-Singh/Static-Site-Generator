@@ -1,1 +1,2 @@
-footer_content ( ID:#footertext# ) :  
+footer_content ( ID:#footertext# ) :: this is developed by static generator
+ 
