@@ -1,0 +1,2 @@
+ 
+about content ( ID:#abouttext# ) :: This is the about area 
