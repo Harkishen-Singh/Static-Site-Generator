@@ -3,6 +3,7 @@ import sys, subprocess
 import codecs, sqlite3
 themeName = 'graxpo'
 connection = sqlite3.connect('../database/Record_'+themeName+'.db')
+changeFound = False
 
 class Replace():
 
@@ -54,14 +55,26 @@ class Replace():
     def scan_previous(self):
         previous = open('../templates/' + themeName +'/Previous_Records/about_content.txt', 'r+')
         reader = previous.read()
+        previous_array = reader.split(' ')
         gotId = False
         gotDoubleColon = False
         newContent = ''
+        pre = ''
+        gotDColon = False
+        for i in previous_array:
+            if i == '::':
+                gotDColon = True
+                continue
+
+            if gotDColon == True:
+                #print('Got inside')
+                pre += i + ' '
 
         if reader != self.about_file_reader :
             reader_array = reader.split(' ')
             print('Change found in about_content.txt')
-            for word in reader_array :
+            changeFound = True
+            for word in self.about_Array :
                 if word == 'ID:#abouttext#':
                     gotId = True
                 if gotId == True:
@@ -70,9 +83,17 @@ class Replace():
                         continue
                 if gotDoubleColon == True:
                     newContent += word + ' '
-
-        self.replacer(self.about, newContent)
-
+                    print('word : '+word)
+            previous.close()
+            print('pre : '+pre[:-1])
+            print('Reader : '+reader)
+            reader = reader.replace(pre[:-1], newContent)
+            print('Now Reader : ' + reader)
+            print('newContent is '+newContent)
+            again = open('../templates/' + themeName +'/Previous_Records/about_content.txt', 'w')
+            again.write(reader)
+            again.close()
+            self.replacer(pre[:-1], newContent)
 
     def scan_the_database_about(self, name, content):
         cmd = 'select * from '+name+';'
@@ -90,7 +111,7 @@ class Replace():
         connection.commit()
 
     def replacer(self, p, content):
-        self.indexFile_writer = open(self.themeAddress + 'index.html', 'w')
+        self.indexFile_writer = open(self.themeAddress + 'index.html', 'r+')
 
         got_the_required_id = False
         '''
@@ -103,8 +124,8 @@ class Replace():
                 print('Replaced with the required id ' + id)
                 break
         '''
-        print(p + ' '+content)
-        self.index = self.index.replace(p,content)
+        #print(p + ' '+content)
+        self.index = self.index.replace(p,content,1)
         #print(self.index.split(' '))
         self.indexFile_writer.write(self.index)
 
