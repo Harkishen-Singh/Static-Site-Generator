@@ -53,9 +53,34 @@ def defaultValues_toDatabase():
     print('came here')
     connection.commit()
 
+
+def defaultValues_toDatabase_secondtime():
+    cmd = "INSERT INTO GENERALINFORMATION (No, title, BannerContent1, bannercontent2) VALUES(2,'ID:#title#','ID:#htext#', 'ID:#htext2#');"
+    connection.execute(cmd)
+
+    cmd = '''INSERT INTO ABOUTCONTENT (No, content, details) VALUES(2,'ID:#abouttext#', ''' + str(time)[:9]+ ''');'''
+    connection.execute(cmd)
+
+    cmd = '''INSERT INTO ABOUTCONTACT (No, contactBrief, contactadd1, contactadd2, contactMail, ContactPhone, details) \
+    VALUES(2,'ID:#contacttext#',  'ID:#contactaddress1#', 'ID:#contactaddress2#'\
+     , 'ID:#contactmail#', ' ID:#contactphone# ','''+ str(time)[:9]+ ''');'''
+    connection.execute(cmd)
+
+    cmd = '''INSERT INTO ABOUTTEAM (No, teamBrief, details) VALUES(2, 'ID:#teambrief#', ''' + str(time)[:9]+ ''');'''
+    connection.execute(cmd)
+
+    cmd = '''INSERT INTO TEAMMEMBERS (No, name, Position, brief, details) VALUES(2, 'ID:#team1name#' , 'ID:#team1post#', 'ID:#team1content#', ''' +str(time)[:9]+ ''');'''
+    connection.execute(cmd)
+
+    cmd = '''INSERT INTO ABOUTFOOTER (No, footerContent, details) VALUES(2, 'ID:#footertext#', '''+str(time)[:9]+''');'''
+    connection.execute(cmd)
+    print('came here')
+    connection.commit()
+
 #createNecessaryTables()
 
-defaultValues_toDatabase()
+#defaultValues_toDatabase()
+#defaultValues_toDatabase_secondtime()
 
 '''
 def about():
